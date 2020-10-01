@@ -52,14 +52,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <div style="float: right" class="container-fluid">
-                            <br>
-                            <?php echo anchor(
-                                base_url('Inventaris'),
-                                '<i class="fa fa-reply"></i> Kembali',
-                                'class="btn btn-primary"'
-                            ); ?>
-                        </div>
                         <h4 class="title">Data Inventaris</h4>
                         <p class="category">Kantor Dinas Komunikasi dan Informatika, Kec. Kota, Kab. Kudus, Jawa Tengah</p>
                         <br>
