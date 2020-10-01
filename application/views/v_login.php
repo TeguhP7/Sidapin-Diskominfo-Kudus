@@ -196,6 +196,7 @@
 		.texta {
 			text-decoration: none;
 			margin: 15px 0px 10px 0px;
+			width: 200px;
 		}
 	</style>
 
