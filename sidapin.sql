@@ -43,12 +43,12 @@ CREATE TABLE `assets` (
 --
 
 INSERT INTO `assets` (`id_assets`, `kode_aset`, `nama_aset`, `tahun`, `kondisi`, `ket_lain`, `foto_aset`) VALUES
-(1, '23487672HH', 'Laptop Asus Core i7', '2018', 'Rusak', 'Ga ada', '729.jpg'),
-(2, '897778GT11', 'Printer JET 86', '2018', 'Rusak', 'Ga ada', '4.jpg'),
-(3, '342432432POT', 'Komputer DELL Series 10A', '2018', 'Rusak', 'Ga ada', '14216.jpg'),
-(7, '1117287NUBB', 'Daikin AC 9000', '2012', 'Rusak', 'Masih di gudang', 'OR68WI0.jpg'),
-(8, '1117287CV', 'Laptop Asus 2 Core i7', '2018', 'Rusak', 'Lancar', 'bg6.png'),
-(9, '1117287COC', 'Digitec Wireless Mouse 110', '2018', 'Baik', 'OK', '62042.jpg');
+(1, '23487672HH', 'Laptop Asus Core i7', '2018', 'Rusak', 'Ga ada', 'laptop.jpg'),
+(2, '897778GT11', 'Printer JET 86', '2018', 'Rusak', 'Ga ada', 'printer.jpg'),
+(3, '342432432POT', 'Komputer DELL Series 10A', '2018', 'Rusak', 'Ga ada', 'komputer.jpg'),
+(7, '1117287NUBB', 'Daikin AC 9000', '2012', 'Rusak', 'Masih di gudang', 'ac.jpeg'),
+(8, '1117287CV', 'Laptop Asus 2 Core i7', '2018', 'Rusak', 'Lancar', 'laptop.jpg'),
+(9, '1117287COC', 'Digitec Wireless Mouse 110', '2018', 'Baik', 'OK', 'mouse.jpg');
 
 -- --------------------------------------------------------
 
