@@ -52,7 +52,7 @@
             }
             echo '<td align="center" width="300px" height="150px">
             <img width="100px" src="' . base_url('assets/qrcodeinven/QR_Code_' . $value->kode_aset . '_' . $value->nama_pegawai . '.png') . '" alt="">
-            <br>' . $value->nama_pegawai . ', ' . $value->nama_aset . '
+            <br>' . $value->nama_aset . '<br>' . $value->nama_pegawai . '
             </td>';
             if ($i % $kolom == 0) {
                 echo '</tr>';
