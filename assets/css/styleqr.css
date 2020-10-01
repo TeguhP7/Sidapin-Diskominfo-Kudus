@@ -1,0 +1,74 @@
+#camera-select {
+    width: auto;
+    background-color: rgb(90, 87, 87);
+    color: whitesmoke;
+    opacity: 0.7;
+    transition: 0.3s;
+    text-align: center;
+}
+
+#camera-select :hover {
+    opacity: 1;
+}
+
+.btn {
+    margin-bottom: 2px;
+}
+
+.form-control {
+    height: 32px;
+}
+
+.well {
+    position: relative;
+    display: inline-block;
+}
+
+.panel-heading {
+    display: inline-block;
+    width: 100%;
+}
+
+.scanner-laser {
+    position: absolute;
+    margin: 30px;
+    height: 30px;
+    width: 30px;
+    opacity: 0.5;
+}
+
+.laser-leftTop {
+    top: 0;
+    left: 0;
+    border-top: solid black 5px;
+    border-left: solid black 5px;
+}
+
+.laser-leftBottom {
+    bottom: 0;
+    left: 0;
+    border-bottom: solid black 5px;
+    border-left: solid black 5px;
+}
+
+.laser-rightTop {
+    top: 0;
+    right: 0;
+    border-top: solid black 5px;
+    border-right: solid black 5px;
+}
+
+.laser-rightBottom {
+    bottom: 0;
+    right: 0;
+    border-bottom: solid black 5px;
+    border-right: solid black 5px;
+}
+
+#webcodecam-canvas {
+    background-color: #272822;
+}
+
+#scanned-QR {
+    word-break: break-word;
+}
