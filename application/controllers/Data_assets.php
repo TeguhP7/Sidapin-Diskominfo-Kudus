@@ -49,28 +49,72 @@ class Data_assets extends CI_Controller
 
         //panggil function 
         $data['data'] = $this->Assets_model->pagination($config["per_page"], $data['page']);
+
+        $keyword = $this->input->post('keyword');
+        $data['data'] = $this->Assets_model->search($keyword, $config["per_page"], $data['page']);
+
         $data['pagination'] = $this->pagination->create_links();
-        $data['foto_aset'] = $this->db->get_where('assets', 'foto_aset');
+
         //load view 
         $this->load->view('Assets_v/assets_list', $data);
     }
 
-    // function search()
-    // {
-    //     // Ambil data NIS yang dikirim via ajax post
-    //     $keyword = $this->input->post('keyword');
-    //     $search = $this->Assets_model->search($keyword);
+    function search()
+    {
+        // Search text
+        $keyword = (trim($this->input->post('keyword', true))) ? trim($this->input->post('keyword', true)) : '';
+        if ($this->input->post('keyword') != NULL) {
+            $this->session->set_userdata(array("search" => $keyword));
+        } else {
+            if ($this->session->userdata('search') != NULL) {
+                $keyword = $this->session->userdata('search');
+            }
+        }
 
-    //     // Kita load file view.php sambil mengirim data siswa hasil query function search di SiswaModel
-    //     $hasil = $this->load->view('Assets_v/assets_list', array('data' => $search), true);
-    //     var_dump($hasil);
+        $config['base_url'] = site_url('Data_assets/search'); //site url
+        $config['total_rows'] = $this->Assets_model->count_search($keyword); //total row
+        $config['per_page'] = 5;  //show record per halaman
+        $config["uri_segment"] = 3;  // uri parameter
+        $choice = $config["total_rows"] / $config["per_page"];
+        $config["num_links"] = floor($choice);
 
-    //     // Buat sebuah array
-    //     $callback = array(
-    //         'hasil' => $hasil, // Set array hasil dengan isi dari view.php yang diload tadi
-    //     );
-    //     echo json_encode($callback); // konversi varibael $callback menjadi JSON
-    // }
+        // Membuat Style pagination untuk BootStrap v4
+        $config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Selanjutnya';
+        $config['prev_link']        = 'Sebelumnya';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>>></li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+
+        $this->pagination->initialize($config);
+
+        $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $data['data'] = $this->Assets_model->search($keyword, $config["per_page"], $data['page']);
+
+        $data['pagination'] = $this->pagination->create_links();
+
+        $data['keyword'] =  set_value('keyword', $keyword);
+
+        $this->load->view('Assets_v/assets_list', $data);
+    }
+
+    function unset_search()
+    {
+        $this->session->unset_userdata('search');
+        redirect('Data_assets');
+    }
 
     function uploadImage()
     {

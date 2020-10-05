@@ -21,6 +21,17 @@ $this->load->view('templates/header');
 								echo anchor(site_url("Laporan/qrinven"), '<i class="fa fa-qrcode"></i> Cetak QR Code', 'class="btn btn-dark"');
 							} ?>
 						</div>
+						<div class="" style="float:right">
+							<?php echo form_open('Inventaris/search') ?>
+							<?php if ($this->session->userdata('search') != null) {
+								echo anchor(site_url('Inventaris/unset_search'), '<i class="fa fa-times-circle" style="color:red"></i>', 'class=""');
+							} ?>
+							<input style="opacity:70%;" type="text" name="keyword" placeholder="Masukkan kata kunci" value="<?php if ($this->session->userdata('search') != null) {
+																																echo $keyword;
+																															} ?>">
+							<input type="submit" name="search_submit" value="Cari" style="color: antiquewhite; background-color:black; opacity:60%;">
+							<?php echo form_close() ?>
+						</div>
 						<br>
 					</div>
 					<div class="content table-responsive table-full-width">

@@ -14,6 +14,30 @@ class Pegawai_model extends CI_Model
 		parent::__construct();
 	}
 
+	function search($keyword, $limit, $start)
+	{
+		$this->db->like('nip_pegawai', $keyword);
+		$this->db->or_like('nama_pegawai', $keyword);
+		$this->db->or_like('jabatan', $keyword);
+		$this->db->or_like('telepon', $keyword);
+		$this->db->or_like('status_p', $keyword);
+		$this->db->or_like('jenis_k', $keyword);
+		$this->db->order_by($this->id, $this->order);
+		return $this->db->get($this->nama_table, $limit, $start)->result();
+	}
+
+	function count_search($keyword)
+	{
+		$this->db->like('nip_pegawai', $keyword);
+		$this->db->or_like('nama_pegawai', $keyword);
+		$this->db->or_like('jabatan', $keyword);
+		$this->db->or_like('telepon', $keyword);
+		$this->db->or_like('status_p', $keyword);
+		$this->db->or_like('jenis_k', $keyword);
+		$this->db->order_by($this->id, $this->order);
+		return count($this->db->get($this->nama_table)->result());
+	}
+
 
 	function pagination($limit, $start)
 	{

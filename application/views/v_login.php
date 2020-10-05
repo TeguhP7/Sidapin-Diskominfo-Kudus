@@ -224,9 +224,12 @@
 				<h3 class="panel-title">Cek Data</h3>
 			</div>
 			<div class="panel-body">
-				<a href="<?= base_url('Scanner/inven') ?>" class="btn btn-danger texta"><i class="fa fa-qrcode" aria-hidden="true"></i> Scan Inventaris</a>
-				<a href="<?= base_url('Scanner/profile') ?>" class="btn btn-danger texta"><i class="fa fa-qrcode" aria-hidden="true"></i> Scan Pegawai</a>
-
+				<a href="<?= base_url('Scanner/inven') ?>" class="btn btn-danger texta">
+					<i class="fa fa-qrcode" aria-hidden="true"> </i>
+					Scan Inventaris</a>
+				<a href="<?= base_url('Scanner/profile') ?>" class="btn btn-danger texta">
+					<i class="fa fa-qrcode" aria-hidden="true"> </i>
+					Scan Pegawai</a>
 			</div>
 		</div>
 	</div>

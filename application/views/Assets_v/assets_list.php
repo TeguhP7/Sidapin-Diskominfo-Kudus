@@ -22,9 +22,18 @@ $this->load->view('templates/header');
 								echo anchor(site_url("Laporan/aset"), '<i class="fa fa-file"></i> Cetak', 'class="btn btn-dark"');
 							} ?>
 						</div>
+						<div class="" style="float:right">
+							<?php echo form_open('Data_assets/search') ?>
+							<?php if ($this->session->userdata('search') != null) {
+								echo anchor(site_url('Data_assets/unset_search'), '<i class="fa fa-times-circle" style="color:red"></i>', 'class=""');
+							} ?>
+							<input style="opacity: 70%;" type="text" name="keyword" placeholder="Masukkan kata kunci" value="<?php if ($this->session->userdata('search') != null) {
+																																	echo $keyword;
+																																} ?>">
+							<input type="submit" name="search_submit" value="Cari" style="color: antiquewhite; background-color:black; opacity:60%;">
+							<?php echo form_close() ?>
+						</div>
 						<br>
-						<!-- <input type="text" id="keyword">
-						<button type="button" id="btn-search" class=""><i class="fa fa-search"></i>Cari</button> -->
 					</div>
 					<div class="content table-responsive table-full-width" id="view">
 						<table class="table table-hover table-striped">

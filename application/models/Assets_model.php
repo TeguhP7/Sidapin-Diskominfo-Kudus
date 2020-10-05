@@ -14,15 +14,27 @@ class Assets_model extends CI_Model
 		parent::__construct();
 	}
 
-	// function search($keyword)
-	// {
-	// 	$this->db->like('kode_aset', $keyword);
-	// 	$this->db->or_like('nama_aset', $keyword);
-	// 	$this->db->or_like('tahun', $keyword);
-	// 	$this->db->or_like('kondisi', $keyword);
-	// 	$this->db->or_like('ket_lain', $keyword);
-	// 	return $this->db->get($this->nama_table)->result();
-	// }
+	function search($keyword, $limit, $start)
+	{
+		$this->db->like('kode_aset', $keyword);
+		$this->db->or_like('nama_aset', $keyword);
+		$this->db->or_like('tahun', $keyword);
+		$this->db->or_like('kondisi', $keyword);
+		$this->db->or_like('ket_lain', $keyword);
+		$this->db->order_by($this->id, $this->order);
+		return $this->db->get($this->nama_table, $limit, $start)->result();
+	}
+
+	function count_search($keyword)
+	{
+		$this->db->like('kode_aset', $keyword);
+		$this->db->or_like('nama_aset', $keyword);
+		$this->db->or_like('tahun', $keyword);
+		$this->db->or_like('kondisi', $keyword);
+		$this->db->or_like('ket_lain', $keyword);
+		$this->db->order_by($this->id, $this->order);
+		return count($this->db->get($this->nama_table)->result());
+	}
 
 
 	function ambil_data_scan($kode)

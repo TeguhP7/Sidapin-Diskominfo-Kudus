@@ -14,7 +14,34 @@ class Inventaris_model extends CI_Model
 		parent::__construct();
 	}
 
-	//untuk mengambil data seluruh mahasiswa
+	function search($keyword, $limit, $start)
+	{
+		$this->db->distinct();
+		$this->db->select('b.id, t.nama_aset, p.nama_pegawai, b.ket_lain');
+		$this->db->from('inven b');
+		$this->db->join('pegawai p', 'b.id_peg = p.id_peg');
+		$this->db->join('assets t', 'b.id_assets = t.id_assets');
+		$this->db->like('t.nama_aset', $keyword);
+		$this->db->or_like('p.nama_pegawai', $keyword);
+		$this->db->or_like('b.ket_lain', $keyword);
+		$this->db->order_by($this->id, $this->order);
+		return $this->db->get($this->nama_table, $limit, $start)->result();
+	}
+
+	function count_search($keyword)
+	{
+		$this->db->distinct();
+		$this->db->select('b.id, t.nama_aset, p.nama_pegawai, b.ket_lain');
+		$this->db->from('inven b');
+		$this->db->join('pegawai p', 'b.id_peg = p.id_peg');
+		$this->db->join('assets t', 'b.id_assets = t.id_assets');
+		$this->db->like('t.nama_aset', $keyword);
+		$this->db->or_like('p.nama_pegawai', $keyword);
+		$this->db->or_like('b.ket_lain', $keyword);
+		$this->db->order_by($this->id, $this->order);
+		return count($this->db->get($this->nama_table)->result());
+	}
+
 	function pagination($limit, $start)
 	{
 		$this->db->distinct();
