@@ -21,7 +21,10 @@ class Pegawai_model extends CI_Model
 		$this->db->or_like('jabatan', $keyword);
 		$this->db->or_like('telepon', $keyword);
 		$this->db->or_like('status_p', $keyword);
+		$this->db->or_like('alamat', $keyword);
 		$this->db->or_like('jenis_k', $keyword);
+		$this->db->or_like('agama', $keyword);
+		$this->db->or_like('status', $keyword);
 		$this->db->order_by($this->id, $this->order);
 		return $this->db->get($this->nama_table, $limit, $start)->result();
 	}
@@ -33,7 +36,10 @@ class Pegawai_model extends CI_Model
 		$this->db->or_like('jabatan', $keyword);
 		$this->db->or_like('telepon', $keyword);
 		$this->db->or_like('status_p', $keyword);
+		$this->db->or_like('alamat', $keyword);
 		$this->db->or_like('jenis_k', $keyword);
+		$this->db->or_like('agama', $keyword);
+		$this->db->or_like('status', $keyword);
 		$this->db->order_by($this->id, $this->order);
 		return count($this->db->get($this->nama_table)->result());
 	}
