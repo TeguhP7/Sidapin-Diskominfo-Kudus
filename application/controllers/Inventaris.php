@@ -52,7 +52,7 @@ class Inventaris extends CI_Controller
 		//panggil function 
 		$data['data'] = $this->Inventaris_model->pagination($config["per_page"], $data['page']);
 		$data['pagination'] = $this->pagination->create_links();
-
+		$data['keyword'] =  set_value('keyword');
 		//load view 
 		$this->load->view('Inventaris/inventaris_list', $data);
 	}
@@ -196,7 +196,7 @@ class Inventaris extends CI_Controller
 		);
 		$id = $this->input->post('id');
 		$this->Inventaris_model->edit_data($id, $data);
-		redirect(site_url('Inventaris'));
+		redirect(site_url('Inventaris/unset_search'));
 	}
 
 	function inven($id)

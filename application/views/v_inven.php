@@ -9,7 +9,7 @@
                         <div style="float: right" class="container-fluid">
                             <br>
                             <?php echo anchor(
-                                base_url('Inventaris'),
+                                base_url('Inventaris/unset_search'),
                                 '<i class="fa fa-reply"></i> Kembali',
                                 'class="btn btn-primary"'
                             ); ?>

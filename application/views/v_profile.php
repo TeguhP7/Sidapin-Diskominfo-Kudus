@@ -9,7 +9,7 @@
                         <div style="float: right" class="container-fluid">
                             <br>
                             <?php echo anchor(
-                                base_url('Pegawai'),
+                                base_url('Pegawai/unset_search'),
                                 '<i class="fa fa-reply"></i> Kembali',
                                 'class="btn btn-primary"'
                             ); ?>
@@ -45,6 +45,18 @@
                                         } ?>
                                     </th>
                                     <th>
+                                        <?php
+                                        $kode = $nip_pegawai;
+                                        require_once("assets/phpqrcode/qrlib.php");
+
+                                        //Nama Folder file QR Code kita nantinya akan disimpan
+                                        $tempdir = "assets/qrcodepeg/";
+                                        //jika folder belum ada, buat folder 
+                                        if (!file_exists($tempdir)) {
+                                            mkdir($tempdir);
+                                        }
+                                        QRcode::png("$kode", $tempdir . "QR_Code" . $kode . ".png", "H", 5.5, 5.5);
+                                        ?>
                                         <center>
                                             <img src="<?= base_url('assets/qrcodepeg/' . 'QR_Code' . $nip_pegawai . '.png') ?>" alt="QR_CODE">
                                         </center>

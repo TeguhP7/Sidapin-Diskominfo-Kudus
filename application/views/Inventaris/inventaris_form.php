@@ -57,7 +57,7 @@ if ($this->session->userdata('status') == 'admin') {
 							<input type="hidden" name="id" value="<?php echo $id; ?>">
 							<button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i> <?php echo $button; ?></button>
 
-							<a href="<?php echo site_url('Inventaris') ?>" class="btn btn-default"><i class="fa fa-times"></i> Cancel</a>
+							<a href="<?php echo site_url('Inventaris/unset_search') ?>" class="btn btn-default"><i class="fa fa-times"></i> Cancel</a>
 							<div class="clearfix"></div>
 						</form>
 					</div>

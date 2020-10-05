@@ -54,7 +54,7 @@ class Data_assets extends CI_Controller
         $data['data'] = $this->Assets_model->search($keyword, $config["per_page"], $data['page']);
 
         $data['pagination'] = $this->pagination->create_links();
-
+        $data['keyword'] =  set_value('keyword');
         //load view 
         $this->load->view('Assets_v/assets_list', $data);
     }
@@ -152,6 +152,7 @@ class Data_assets extends CI_Controller
             'ket_lain' => set_value('ket_lain'),
             'id_assets' => set_value('id_assets'),
             'button' => 'Tambah',
+            'small' => '',
             'action' => site_url('Data_assets/tambah_aksi'),
         );
         if ($this->input->post('submit')) { // Jika user menekan tombol Submit (Simpan) pada form
@@ -202,6 +203,7 @@ class Data_assets extends CI_Controller
             'ket_lain' => set_value('ket_lain', $ivs->ket_lain),
             'id_assets' => set_value('id_assets', $ivs->id_assets),
             'button' => 'Simpan',
+            'small' => 'NB: Biarkan kosong jika tidak mengganti foto',
             'action' => site_url('Data_assets/edit_aksi'),
         );
         $this->load->view('Assets_v/assets_form', $data);
@@ -223,11 +225,11 @@ class Data_assets extends CI_Controller
             $data['foto_aset'] = $upload['file']['file_name'];
             $id = $this->input->post('id_assets');
             $this->Assets_model->edit_data($id, $data);
-            redirect(site_url('Data_assets'));
+            redirect(site_url('Data_assets/unset_search'));
         } else {
             $id = $this->input->post('id_assets');
             $this->Assets_model->edit_data($id, $data);
-            redirect(site_url('Data_assets'));
+            redirect(site_url('Data_assets/unset_search'));
         }
     }
 }

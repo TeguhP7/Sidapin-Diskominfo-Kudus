@@ -80,7 +80,7 @@ if ($this->session->userdata('status') == 'admin') {
 									<div class="form-group">
 										<label>Gambar / Foto</label>
 										<input type="file" class="form-control" name="foto_aset" style="width:100%; height:100%;">
-										<small>(Max. 5 MB)</small>
+										<small>(Max. 5 MB) <?= $small ?></small>
 									</div>
 								</div>
 							</div>

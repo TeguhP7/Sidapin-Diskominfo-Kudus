@@ -52,6 +52,7 @@ class Pegawai extends CI_Controller
 		$data['pagination'] = $this->pagination->create_links();
 
 		$data['nama_file'] = $this->db->get_where('pegawai', 'nama_file');
+		$data['keyword'] =  set_value('keyword');
 
 		//$data['Pegawai'] = $this->Pegawai_model->ambil_data();
 		$this->load->view('Pegawai/pegawai_list', $data);
