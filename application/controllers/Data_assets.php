@@ -174,18 +174,26 @@ class Data_assets extends CI_Controller
 
     function tambah_aksi()
     {
-        $upload = $this->uploadImage();
         $data = array(
-            'foto_aset' => $upload['file']['file_name'],
+            //'foto_aset' => $upload['file']['file_name'],
             'kode_aset' => $this->input->post('kode_aset'),
             'nama_aset' => $this->input->post('nama_aset'),
             'kondisi' => $this->input->post('kondisi'),
             'ket_lain' => $this->input->post('ket_lain'),
             'tahun' => $this->input->post('tahun'),
+            'foto_aset' => $this->input->post('foto_aset'),
         );
-        $this->Assets_model->tambah_data($data);
-        redirect(site_url('Data_assets'));
+        $upload = $this->uploadImage();
+        if ($upload['result'] == "success") {
+            $data['foto_aset'] = $upload['file']['file_name'];
+            $this->Assets_model->tambah_data($data);
+            redirect(site_url('Data_assets'));
+        } else {
+            $this->Assets_model->tambah_data($data);
+            redirect(site_url('Data_assets'));
+        }
     }
+
     function delete($id)
     {
         $this->Assets_model->hapus_data($id);

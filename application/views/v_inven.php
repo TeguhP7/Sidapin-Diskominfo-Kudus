@@ -28,19 +28,19 @@
                                         </a>
                                     </th>
                                     <th>
-                                        <center>
-                                            <?php
-                                            $kode = $kode_aset;
-                                            require_once("assets/phpqrcode/qrlib.php");
+                                        <?php
+                                        $kode = $kode_aset;
+                                        require_once("assets/phpqrcode/qrlib.php");
 
-                                            //Nama Folder file QR Code kita nantinya akan disimpan
-                                            $tempdir = "assets/qrcodeinven/";
-                                            //jika folder belum ada, buat folder 
-                                            if (!file_exists($tempdir)) {
-                                                mkdir($tempdir);
-                                            }
-                                            QRcode::png("$kode", $tempdir . "QR_Code_" . $kode_aset . "_" . $pengguna . ".png", "H", 5.5, 5.5);
-                                            ?>
+                                        //Nama Folder file QR Code kita nantinya akan disimpan
+                                        $tempdir = "assets/qrcodeinven/";
+                                        //jika folder belum ada, buat folder 
+                                        if (!file_exists($tempdir)) {
+                                            mkdir($tempdir);
+                                        }
+                                        QRcode::png("$kode", $tempdir . "QR_Code_" . $kode_aset . "_" . $pengguna . ".png", "H", 5.5, 5.5);
+                                        ?>
+                                        <center>
                                             <img src="<?= base_url($tempdir . 'QR_Code_' . $kode_aset . '_' . $pengguna . '.png') ?>" alt="QR_CODE">
                                         </center>
                                     </th>

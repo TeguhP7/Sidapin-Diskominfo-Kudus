@@ -175,7 +175,7 @@ class Pegawai extends CI_Controller
 	{
 		$upload = $this->uploadImage();
 		$data = array(
-			'nama_file' => $upload['file']['file_name'],
+			//'nama_file' => $upload['file']['file_name'],
 			// 'ukuran' => $upload['file']['file_size'],
 			'nip_pegawai' => $this->input->post('nip_pegawai'),
 			'nama_pegawai' => $this->input->post('nama_pegawai'),
@@ -186,9 +186,17 @@ class Pegawai extends CI_Controller
 			'jenis_k' =>  $this->input->post('jenis_k'),
 			'agama' => $this->input->post('agama'),
 			'status' => $this->input->post('status'),
+			'nama_file' => $this->input->post('input_foto'),
 		);
-		$this->Pegawai_model->tambah_data($data);
-		redirect(site_url('Pegawai'));
+		$upload = $this->uploadImage();
+		if ($upload['result'] == "success") {
+			$data['nama_file'] = $upload['file']['file_name'];
+			$this->Pegawai_model->tambah_data($data);
+			redirect(site_url('Pegawai'));
+		} else {
+			$this->Pegawai_model->tambah_data($data);
+			redirect(site_url('Pegawai'));
+		}
 	}
 
 	function delete($id)

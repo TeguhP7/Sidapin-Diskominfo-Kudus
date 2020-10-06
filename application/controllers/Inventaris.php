@@ -152,9 +152,7 @@ class Inventaris extends CI_Controller
 
 	function tambah_aksi()
 	{
-		// $upload = $this->uploadImage();
 		$data = array(
-			// 'foto_aset' => $upload['file']['file_name'],
 			'ket_lain' => $this->input->post('ket_lain'),
 			'id_peg' => $this->input->post('id_peg'),
 			'id_assets' => $this->input->post('id_assets'),
@@ -187,9 +185,7 @@ class Inventaris extends CI_Controller
 
 	function edit_aksi()
 	{
-		//$upload = $this->uploadImage();
 		$data = array(
-			//'foto_aset' => $upload['file']['file_name'],
 			'id_assets' => $this->input->post('id_assets'),
 			'id_peg' => $this->input->post('id_peg'),
 			'ket_lain' => $this->input->post('ket_lain'),

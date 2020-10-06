@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2020 at 03:29 AM
+-- Generation Time: Oct 06, 2020 at 03:04 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -34,8 +34,8 @@ CREATE TABLE `assets` (
   `nama_aset` text NOT NULL,
   `tahun` text NOT NULL,
   `kondisi` enum('Baik','Rusak') NOT NULL,
-  `ket_lain` text NOT NULL,
-  `foto_aset` text NOT NULL
+  `ket_lain` text,
+  `foto_aset` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `inven` (
   `id` int(11) NOT NULL,
   `id_assets` bigint(50) NOT NULL,
   `id_peg` bigint(50) NOT NULL,
-  `ket_lain` text NOT NULL
+  `ket_lain` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -72,11 +72,10 @@ INSERT INTO `inven` (`id`, `id_assets`, `id_peg`, `ket_lain`) VALUES
 (2, 2, 4, 'Ga ada'),
 (3, 3, 4, 'Ga ada'),
 (7, 7, 1, 'Masih di gudang'),
-(8, 8, 1, 'Lancar'),
+(8, 8, 1, 'Lancarr'),
 (9, 9, 8, 'OK'),
 (10, 8, 11, 'ndak'),
-(16, 8, 12, 's'),
-(19, 7, 9, 'sip');
+(16, 8, 12, 'sip');
 
 -- --------------------------------------------------------
 
@@ -95,7 +94,7 @@ CREATE TABLE `pegawai` (
   `jenis_k` enum('Laki-laki','Perempuan') NOT NULL,
   `agama` varchar(20) NOT NULL,
   `status` enum('Lajang','Menikah') NOT NULL,
-  `nama_file` text NOT NULL
+  `nama_file` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -111,9 +110,8 @@ INSERT INTO `pegawai` (`id_peg`, `nip_pegawai`, `nama_pegawai`, `jabatan`, `tele
 (12, 11920288712, 'Arifin', 'Sekretaris', '082177653452', 'PNS', 'Jl. Magang meneh', 'Laki-laki', 'Islam', 'Lajang', 'user3x4.png'),
 (13, 11920206888, 'Catur', 'Ketua Pramuka', '083178653153', 'Lainnya', 'Jl. Deket', 'Laki-laki', 'Islam', 'Lajang', 'user3x4.png'),
 (14, 11920288714, 'Dadang', 'Kabid', '082177653777', 'PNS', 'Jl. juga', 'Laki-laki', 'Islam', 'Lajang', 'user3x4.png'),
-(15, 11976506888, 'Pinta', 'Ibu Negaraa', '082877659354', 'PNS', 'Jl. in aja', 'Perempuan', 'Islam', 'Lajang', 'user3x4.png'),
-(16, 11920288564, 'Sari', 'Ibu Negara ', '08217765435', 'PNS', 'Jl. jalankuyy', 'Perempuan', 'Islam', 'Lajang', ''),
-(17, 11962514777, 'Teguh', 'Developer', '0895342432727', 'Lainnya', 'Jl. PLN', 'Laki-laki', 'Islam', 'Lajang', '3x4.JPG');
+(15, 11976506771, 'Pinta', 'Ibu Negaraa', '082877659354', 'PNS', 'Jl. in aja', 'Perempuan', 'Islam', 'Lajang', 'user3x4.png'),
+(17, 11920288713, 'Sari', 'Sekretaris', '082177653452', 'PNS', 'Jl. jalankuyyy', 'Perempuan', 'Islam', 'Lajang', NULL);
 
 -- --------------------------------------------------------
 
@@ -180,7 +178,7 @@ ALTER TABLE `assets`
 -- AUTO_INCREMENT for table `inven`
 --
 ALTER TABLE `inven`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
