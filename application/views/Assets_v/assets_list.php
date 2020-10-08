@@ -11,7 +11,7 @@ $this->load->view('templates/header');
 						<span style="float: right" class="container-fluid">
 							<br>
 							<?php if ($this->session->userdata('status') == 'admin') {
-								echo anchor(site_url("Data_assets/tambah"), '<i class="fa fa-plus"></i> Tambah Data', 'class="btn btn-primary"');
+								echo anchor(site_url("Data_assets/tambah"), '<i class="fa fa-plus"></i> Tambah', 'class="btn btn-primary"');
 							} ?>
 						</span>
 						<h4 class="title">Data Aset</h4>

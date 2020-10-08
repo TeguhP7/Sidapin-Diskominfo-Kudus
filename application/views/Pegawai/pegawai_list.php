@@ -9,7 +9,7 @@
                         <span style="float: right" class="container-fluid">
                             <br>
                             <?php if ($this->session->userdata('status') == 'admin') { ?>
-                                <?php echo anchor(site_url("Pegawai/tambah"), '<i class="fa fa-plus"></i> Tambah Data', 'class="btn btn-primary"'); ?>
+                                <?php echo anchor(site_url("Pegawai/tambah"), '<i class="fa fa-plus"></i> Tambah', 'class="btn btn-primary"'); ?>
                             <?php } ?>
                         </span>
                         <h4 class="title">Data Pegawai</h4>
