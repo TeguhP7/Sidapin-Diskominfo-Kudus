@@ -88,7 +88,7 @@ class Laporan extends CI_Controller
 
         // mencetak string 
         $pdf->Cell(10, 14, '', 0, 1);
-        $pdf->Cell(270, 5, 'LAPORAN ASET', 0, 1, 'C');
+        $pdf->Cell(272, 5, 'DATA ASET', 0, 1, 'C');
 
         // Memberikan space kebawah agar tidak terlalu rapat
         $pdf->Cell(10, 1, '', 0, 1);
@@ -114,7 +114,7 @@ class Laporan extends CI_Controller
         }
 
         //Close and output PDF document
-        $pdf->Output('Laporan Assets.pdf', 'I');
+        $pdf->Output('Data Aset.pdf', 'I');
     }
 
     function pegawai()
@@ -181,7 +181,7 @@ class Laporan extends CI_Controller
 
         // mencetak string 
         $pdf->Cell(10, 14, '', 0, 1);
-        $pdf->Cell(270, 5, 'LAPORAN PEGAWAI', 0, 1, 'C');
+        $pdf->Cell(272, 5, 'DATA PEGAWAI', 0, 1, 'C');
 
         // Memberikan space kebawah agar tidak terlalu rapat
         $pdf->Cell(10, 1, '', 0, 1);
@@ -205,7 +205,7 @@ class Laporan extends CI_Controller
             $no++;
         }
         //Close and output PDF document
-        $pdf->Output('Laporan Pegawai.pdf', 'I');
+        $pdf->Output('Data Pegawai.pdf', 'I');
     }
 
     function kartu_pegawai1($id)
