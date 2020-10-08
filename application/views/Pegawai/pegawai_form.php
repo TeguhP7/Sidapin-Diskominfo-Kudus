@@ -102,7 +102,7 @@ if ($this->session->userdata('status') == 'admin') { ?>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Alamat</label>
-                                        <input type="text" name="alamat" class="form-control" placeholder="Alamat" value="<?php echo $alamat; ?>" required>
+                                         <textarea name="alamat" class="form-control" placeholder="Alamat lengkap" required><?php echo $alamat; ?></textarea>
                                     </div>
                                 </div>
                             </div>

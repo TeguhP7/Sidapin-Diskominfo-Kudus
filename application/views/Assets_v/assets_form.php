@@ -70,7 +70,7 @@ if ($this->session->userdata('status') == 'admin') {
 								<div class="col-md-12">
 									<div class="form-group">
 										<label>Keterangan Lain</label>
-										<input type="text" placeholder="Keterangan lainnya (Bila ada)" value="<?php echo $ket_lain; ?>" class="form-control" name="ket_lain">
+										<textarea name="ket_lain" class="form-control" placeholder="Keterangan lainnya (Bila ada)"><?php echo $ket_lain; ?></textarea>
 									</div>
 								</div>
 							</div>
