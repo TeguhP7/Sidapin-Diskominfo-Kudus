@@ -32,6 +32,7 @@
                             <?php echo form_close() ?>
                         </div>
                         <br>
+                        &nbsp;
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">

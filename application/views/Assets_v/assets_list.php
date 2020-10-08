@@ -34,6 +34,7 @@ $this->load->view('templates/header');
 							<?php echo form_close() ?>
 						</div>
 						<br>
+						&nbsp;
 					</div>
 					<div class="content table-responsive table-full-width" id="view">
 						<table class="table table-hover table-striped">
